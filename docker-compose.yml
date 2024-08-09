@@ -6,7 +6,14 @@ services:
     ports:
       - 5434:5432
     volumes:
-      - pgData:/var/lig/postgresql/pgData
-volumes:
-  pgData:    
+      - /var/lig/postgresql/pgData
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=mongopw
+    ports:
+      - 27017:27017
+    volumes:
+      - /var/lib/mongodb/data
   
